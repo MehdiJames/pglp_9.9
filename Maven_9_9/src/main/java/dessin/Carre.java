@@ -1,22 +1,22 @@
 package dessin;
 
 /**
- * Classe pour le dessin du carré qui hérite de Forme.
- * @author Nathalie
+ * Dessin carre.
+ * @author Mehdi
  *
  */
 
 public class Carre extends Forme implements Dessin {
 	/**
-     * Le point en haut à gauche du carré.
+     * Point situé au coin gauche.
      */
-    private Point hg;
+    private Point hag;
     /**
-     * La longueur de chaque côté du carré.
+     * longueur côte carre.
      */
     private int longueur;
     /**
-     * Constructeur du carre.
+     * Constructeur carre.
      * @param nom2 nom du carre
      * @param p point en haut a gauche du carre
      * @param l longueur du carre
@@ -24,24 +24,24 @@ public class Carre extends Forme implements Dessin {
     public Carre(final String nom2, final Point p, final int l) {
             this.nom = nom2;
             this.nomForme = "Carré";
-            this.hg = p;
+            this.hag = p;
             this.longueur = l;
     }
     /**
      * Methode pour deplacer le carre.
-     * @param valx la valeur a ajouter au x d'un point
+     * @param valeurx la valeur a ajouter au x d'un point
      * @param valy la valeur a ajouter au y d'un point
      */
     @Override
     public void deplace(final int valx, final int valy) {
-        this.hg.deplace(valx, valy);
+        this.hag.deplace(valx, valy);
     }
     /**
      * Methode pour retourner le point en haut a gauche du carre.
      * @return hg
      */
     public Point getPointHG() {
-        return this.hg;
+        return this.hag;
     }
     /**
      * Methode pour recuperer la longueur des cotes.
@@ -69,7 +69,7 @@ public class Carre extends Forme implements Dessin {
      */
     public void affiche() {
         String s = this.nom + " = " + this.nomForme
-                + "((" + this.hg.getX() + ", " + this.hg.getY()
+                + "((" + this.hag.getX() + ", " + this.hag.getY()
                 + "), " + this.longueur + ")\n";
         System.out.println(s);
     }
@@ -80,7 +80,7 @@ public class Carre extends Forme implements Dessin {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((hg == null) ? 0 : hg.hashCode());
+        result = prime * result + ((hag == null) ? 0 : hag.hashCode());
         result = prime * result + longueur;
         return result;
     }
@@ -99,11 +99,11 @@ public class Carre extends Forme implements Dessin {
             return false;
         }
         Carre other = (Carre) obj;
-        if (hg == null) {
-            if (other.hg != null) {
+        if (hag == null) {
+            if (other.hag != null) {
                 return false;
             }
-        } else if (!hg.equals(other.hg)) {
+        } else if (!hag.equals(other.hag)) {
             return false;
         }
         if (longueur != other.longueur) {

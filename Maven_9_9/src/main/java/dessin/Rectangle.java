@@ -1,25 +1,31 @@
 package dessin;
 
+/**
+ * Dessin rectangle.
+ * @author Mehdi
+ *
+ */
+
 public class Rectangle extends Forme implements Dessin {
 	/**
-	 * Le point en haut a gauche du rectangle.
+	 * Point situé au coin gauche.
 	 */
-	  private Point hg;
+	  private Point hag;
 	   /**
 	 	* Le point en bas a droite du rectangle.
 	 	*/
-      private Point bd;
+      private Point bad;
      /**
       * Constructeur du rectangle.
       * @param nom2 le nom du rectangle
-      * @param p1 le point en haut a gauche
-      * @param p2 le point en bas a droite
+      * @param pt1 le point situé au coin gauche
+      * @param pt2 le point situé au coin droit
       */
-     public Rectangle(final String nom2, final Point p1, final Point p2) {
+     public Rectangle(final String nom2, final Point pt1, final Point pt2) {
         this.nom = nom2;
         this.nomForme = "Rectangle";
-        this.hg = p1;
-        this.bd = p2;
+        this.hag = pt1;
+        this.bad = pt2;
     }
      /**
       *  Methode de hachage.
@@ -28,8 +34,8 @@ public class Rectangle extends Forme implements Dessin {
      public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((bd == null) ? 0 : bd.hashCode());
-        result = prime * result + ((hg == null) ? 0 : hg.hashCode());
+        result = prime * result + ((bad == null) ? 0 : bad.hashCode());
+        result = prime * result + ((hag == null) ? 0 : hag.hashCode());
         return result;
      }
      /**
@@ -47,31 +53,31 @@ public class Rectangle extends Forme implements Dessin {
              return false;
          }
          Rectangle other = (Rectangle) obj;
-         if (bd == null) {
-             if (other.bd != null) {
+         if (bad == null) {
+             if (other.bad != null) {
                  return false;
              }
-         } else if (!bd.equals(other.bd)) {
+         } else if (!bad.equals(other.bad)) {
              return false;
          }
-         if (hg == null) {
-             if (other.hg != null) {
+         if (hag == null) {
+             if (other.hag != null) {
                  return false;
              }
-         } else if (!hg.equals(other.hg)) {
+         } else if (!hag.equals(other.hag)) {
              return false;
          }
          return true;
      }
      /**
-      * Methode pour deplacer le rectangle.
-      *  @param valx la valeur a ajouter au x d'un point
-      * @param valy la valeur a ajouter au y d'un point
+      * Deplacer rectangle.
+      *  @param valeurx valeur ajouter abscisse point
+      * @param valeury valeur ajouter ordonnee point
       */
      @Override
-     public void deplace(final int valx, final int valy) {
-         this.hg.deplace(valx, valy);
-         this.bd.deplace(valx, valy);
+     public void deplace(final int valeurx, final int valeury) {
+         this.hag.deplace(valeurx, valeury);
+         this.bad.deplace(valeurx, valeury);
      }
      /**
       * Methode pour recuperer le nom du rectangle.
@@ -92,22 +98,22 @@ public class Rectangle extends Forme implements Dessin {
       * @return hg
       */
      public Point getPointHG() {
-         return this.hg;
+         return this.hag;
      }
      /**
       * Methode pour recupere le point en bas a droite du rectangle.
       *   @return bd
       */
      public Point getPointBD() {
-         return this.bd;
+         return this.bad;
      }
      /**
       * Affiche les informations du rectangle.
       */
      public void affiche() {
          String s = this.nom + " = " + this.nomForme
-                 + "((" + this.hg.getX() + ", " + this.hg.getY()
-                 + "), (" + this.bd.getX() + ", " + this.bd.getY()
+                 + "((" + this.hag.getX() + ", " + this.hag.getY()
+                 + "), (" + this.bad.getX() + ", " + this.bad.getY()
                  + "))\n";
         System.out.println(s);
      }
